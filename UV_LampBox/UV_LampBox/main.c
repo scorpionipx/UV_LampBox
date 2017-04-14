@@ -8,18 +8,20 @@
 #define F_CPU 1000000UL
 
 #include <avr/io.h>
+#include <util/delay.h>
 
 
 int main(void)
 {
     /* Replace with your application code */
-	
-	DDRD = 0xFF;
-	PORTD &= 1 << 7;
-	PORTD &= 1 << 6;
+	DDRC |= 1 << 0;
+	PORTC |= 1 << 0;
 	
     while (1) 
     {
+		_delay_ms(1000);
+		PORTC ^= 1 << 0;
+		
     }
 }
 
