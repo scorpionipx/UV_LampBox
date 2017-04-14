@@ -82,7 +82,7 @@ int main(void)
 	
     while (1) 
     {
-		_delay_ms(1000);
+		_delay_ms(500);
 		PORTC ^= 1 << 0;
   84:	91 e0       	ldi	r25, 0x01	; 1
 	#else
@@ -91,9 +91,9 @@ int main(void)
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
-  86:	2f e3       	ldi	r18, 0x3F	; 63
-  88:	3d e0       	ldi	r19, 0x0D	; 13
-  8a:	83 e0       	ldi	r24, 0x03	; 3
+  86:	2f e9       	ldi	r18, 0x9F	; 159
+  88:	36 e8       	ldi	r19, 0x86	; 134
+  8a:	81 e0       	ldi	r24, 0x01	; 1
   8c:	21 50       	subi	r18, 0x01	; 1
   8e:	30 40       	sbci	r19, 0x00	; 0
   90:	80 40       	sbci	r24, 0x00	; 0
