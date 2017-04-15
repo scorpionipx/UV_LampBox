@@ -19,6 +19,7 @@ int main(void)
 	PORTC |= 1 << 0;
 	_delay_ms(200);
 	init_LCD_Display();
+	_delay_ms(200);
 	put_Char_LCD_Display('t', 1);
 	put_Char_LCD_Display('e', 1);
 	put_Char_LCD_Display('s', 1);
@@ -43,6 +44,9 @@ int main(void)
 	put_Char_LCD_Display('X', 1);
 	
 	put_Char_LCD_Display(0xC0, 0);
+	put_Char_LCD_Display('I', 1);
+	put_Char_LCD_Display('P', 1);
+	put_Char_LCD_Display('X', 1);
 	
 	_delay_ms(1000);
     while (1) 
