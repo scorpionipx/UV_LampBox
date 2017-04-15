@@ -42,6 +42,8 @@ int main(void)
 	put_Char_LCD_Display('P', 1);
 	put_Char_LCD_Display('X', 1);
 	
+	put_Char_LCD_Display(0xC0, 0);
+	
 	_delay_ms(1000);
     while (1) 
     {
