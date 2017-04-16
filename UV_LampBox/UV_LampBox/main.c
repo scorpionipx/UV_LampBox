@@ -47,6 +47,12 @@ int main(void)
 	put_Char_LCD_Display('I', 1);
 	put_Char_LCD_Display('P', 1);
 	put_Char_LCD_Display('X', 1);
+	put_Char_LCD_Display(' ', 1);
+	put_Char_LCD_Display('U', 1);
+	put_Char_LCD_Display('V', 1);
+	put_Char_LCD_Display(' ', 1);
+	put_Char_LCD_Display('L', 1);
+	put_Char_LCD_Display('B', 1);
 	
 	_delay_ms(1000);
     while (1) 
