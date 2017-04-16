@@ -9,12 +9,15 @@
 
 #include <avr/io.h>
 #include <util/delay.h>
+#include <avr/interrupt.h>
 #include "IPX_LCD_Display.h"
+#include "IPX_Interrupt.h"
 
 
 int main(void)
 {
     /* Replace with your application code */
+	init_interrupt_200ms();
 	DDRC |= 1 << 0;
 	PORTC |= 1 << 0;
 	_delay_ms(200);
@@ -35,6 +38,7 @@ int main(void)
 	put_Char_LCD_Display('.', 1);
 	put_Char_LCD_Display('.', 1);
 	put_Char_LCD_Display('.', 1);
+	sei();
 	
 	_delay_ms(1000);
 	put_Char_LCD_Display(0x01,0);//clear display
@@ -73,10 +77,10 @@ int main(void)
 	_delay_ms(1000);
     while (1) 
     {
-		_delay_ms(100);
+		/*_delay_ms(100);
 		PORTC ^= 1 << 0;
 		_delay_ms(5000);
-		PORTC ^= 1 << 0;
+		PORTC ^= 1 << 0;*/
 		
     }
 }

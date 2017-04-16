@@ -118,6 +118,12 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="IPX_Interrupt.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IPX_Interrupt.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="IPX_LCD_Display.c">
       <SubType>compile</SubType>
     </Compile>
