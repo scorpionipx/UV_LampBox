@@ -22,7 +22,13 @@ typedef unsigned long uint32;
 
 /* Exported Variables */
 /*============================================================================*/
-char MENU;
+unsigned short char STATE_MACHINE;
+struct clock_struct
+{
+	unsigned short int H;
+	unsigned short int M;
+	unsigned short int S;
+	}CLOCK;
 
 #endif /* GLOBAL_H_ */ 
 

@@ -16,10 +16,14 @@
 int main(void)
 {
     /* Replace with your application code */
+	
+	CLOCK.H = 0;
+	CLOCK.M = 1;
+	CLOCK.S = 11;
 	init_interrupt_200ms();
 	DDRC |= 1 << 0;
 	PORTC |= 1 << 0;
-	_delay_ms(200);
+	_delay_ms(1200);
 	init_LCD_Display();
 	_delay_ms(1200);
 	put_Char_LCD_Display('I', 1);
@@ -37,7 +41,6 @@ int main(void)
 	put_Char_LCD_Display('.', 1);
 	put_Char_LCD_Display('.', 1);
 	put_Char_LCD_Display('.', 1);
-	sei();
 	
 	_delay_ms(1000);
 	put_Char_LCD_Display(0x01,0);//clear display
@@ -72,6 +75,26 @@ int main(void)
 	put_Char_LCD_Display('1', 1);
 	put_Char_LCD_Display('.', 1);
 	put_Char_LCD_Display('0', 1);
+	_delay_ms(7000);
+	put_Char_LCD_Display(0x01,0);//clear display
+	
+	put_Char_LCD_Display(0x80, 0);
+	put_Char_LCD_Display('T', 1);
+	put_Char_LCD_Display('i', 1);
+	put_Char_LCD_Display('m', 1);
+	put_Char_LCD_Display('e', 1);
+	put_Char_LCD_Display(':', 1);
+	
+	put_Char_LCD_Display(0xC0, 0);
+	put_Char_LCD_Display('0' + CLOCK.H/10, 1);
+	put_Char_LCD_Display('0' + CLOCK.H%10, 1);
+	put_Char_LCD_Display(':', 1);
+	put_Char_LCD_Display('0' + CLOCK.M/10, 1);
+	put_Char_LCD_Display('0' + CLOCK.M%10, 1);
+	put_Char_LCD_Display(':', 1);
+	put_Char_LCD_Display('0' + CLOCK.S/10, 1);
+	put_Char_LCD_Display('0' + CLOCK.S%10, 1);
+	sei();
 	
 	_delay_ms(1000);
     while (1) 

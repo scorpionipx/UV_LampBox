@@ -9,10 +9,12 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
+#include "IPX_Clock.h"
+#include "IPX_LCD_Display.h"
 
 #define INTERRUPT_200MS 200
 
-volatile int counter = 0;
+volatile int counter = 1;
 
 // 10 ms timer
 void init_interrupt_200ms()
@@ -35,8 +37,17 @@ ISR (TIMER0_COMPA_vect)  // timer0 overflow interrupt
 	counter ++;
 	if(counter >= 100)
 	{
-		counter = 0;
-		
+		counter = 1;
 		PORTC ^= 1 << 0;
+		decrement_clock();
+		put_Char_LCD_Display(0xC0, 0);
+		put_Char_LCD_Display('0' + CLOCK.H/10, 1);
+		put_Char_LCD_Display('0' + CLOCK.H%10, 1);
+		put_Char_LCD_Display(':', 1);
+		put_Char_LCD_Display('0' + CLOCK.M/10, 1);
+		put_Char_LCD_Display('0' + CLOCK.M%10, 1);
+		put_Char_LCD_Display(':', 1);
+		put_Char_LCD_Display('0' + CLOCK.S/10, 1);
+		put_Char_LCD_Display('0' + CLOCK.S%10, 1);
 	}
 }
