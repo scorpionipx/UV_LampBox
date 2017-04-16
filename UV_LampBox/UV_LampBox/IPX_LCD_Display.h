@@ -17,7 +17,9 @@
 #ifndef IPX_LCD_DISPLAY_H_
 #define IPX_LCD_DISPLAY_H_
 
+void put_string(const char *_string);
 void put_Char_LCD_Display(int ch, int type);
 void init_LCD_Display(void);
+void display_time();
 
 #endif /* IPX_LCD_DISPLAY_H_ */

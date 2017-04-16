@@ -6,10 +6,19 @@
 
 /* Constants and types */
 /*============================================================================*/
-#define F_CPU		1000000UL //clock freq-must be define before including util/delay.h
+#define F_CPU		1000000UL // 1MHz internal RC oscillator; clock freq-must be define before including util/delay.h
 
 #define FALSE 0
 #define TRUE 1
+
+#define STATE_INIT 0
+#define STATE_WELCOME 1
+#define STATE_PASSWROD 2
+#define STATE_SETTINGS 3
+#define STATE_WROKING 4
+#define STATE_PAUSE 5
+#define STATE_FINISHED 6
+
 
 
 // types
@@ -22,7 +31,7 @@ typedef unsigned long uint32;
 
 /* Exported Variables */
 /*============================================================================*/
-unsigned short char STATE_MACHINE;
+unsigned short STATE_MACHINE;
 struct clock_struct
 {
 	unsigned short int H;

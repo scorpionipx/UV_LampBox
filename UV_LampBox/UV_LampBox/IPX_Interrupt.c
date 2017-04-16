@@ -40,14 +40,6 @@ ISR (TIMER0_COMPA_vect)  // timer0 overflow interrupt
 		counter = 1;
 		PORTC ^= 1 << 0;
 		decrement_clock();
-		put_Char_LCD_Display(0xC0, 0);
-		put_Char_LCD_Display('0' + CLOCK.H/10, 1);
-		put_Char_LCD_Display('0' + CLOCK.H%10, 1);
-		put_Char_LCD_Display(':', 1);
-		put_Char_LCD_Display('0' + CLOCK.M/10, 1);
-		put_Char_LCD_Display('0' + CLOCK.M%10, 1);
-		put_Char_LCD_Display(':', 1);
-		put_Char_LCD_Display('0' + CLOCK.S/10, 1);
-		put_Char_LCD_Display('0' + CLOCK.S%10, 1);
+		display_time();
 	}
 }
