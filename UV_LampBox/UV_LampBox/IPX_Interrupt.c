@@ -4,8 +4,8 @@
  * Created: 22.03.2016 20:52:05
  *  Author: Dan
  */ 
-#define F_CPU 1000000UL
 
+#include "Global.h"
 #include <avr/io.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>

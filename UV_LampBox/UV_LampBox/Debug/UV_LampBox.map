@@ -5,6 +5,11 @@ c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/..
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_clear_bss.o)
                               IPX_Interrupt.o (__do_clear_bss)
 
+Allocating common symbols
+Common symbol       size              file
+
+MENU                0x1               IPX_Interrupt.o
+
 Discarded input sections
 
  .data          0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega328p/avr5/crtatmega328p.o
@@ -12,6 +17,7 @@ Discarded input sections
  .text          0x00000000        0x0 IPX_Interrupt.o
  .data          0x00000000        0x0 IPX_Interrupt.o
  .bss           0x00000000        0x0 IPX_Interrupt.o
+ COMMON         0x00000000        0x1 IPX_Interrupt.o
  .text          0x00000000        0x0 IPX_LCD_Display.o
  .data          0x00000000        0x0 IPX_LCD_Display.o
  .bss           0x00000000        0x0 IPX_LCD_Display.o
@@ -407,26 +413,26 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x12dc
+.debug_info     0x00000000     0x132b
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x5f4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_info    0x000005f4       0xaf IPX_Interrupt.o
- .debug_info    0x000006a3      0x414 IPX_LCD_Display.o
- .debug_info    0x00000ab7      0x825 main.o
+ .debug_info    0x000005f4       0xc8 IPX_Interrupt.o
+ .debug_info    0x000006bc      0x431 IPX_LCD_Display.o
+ .debug_info    0x00000aed      0x83e main.o
 
-.debug_abbrev   0x00000000      0x882
+.debug_abbrev   0x00000000      0x88c
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x5a2 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega328p/avr5/crtatmega328p.o
  .debug_abbrev  0x000005a2       0x7f IPX_Interrupt.o
- .debug_abbrev  0x00000621      0x12d IPX_LCD_Display.o
- .debug_abbrev  0x0000074e      0x134 main.o
+ .debug_abbrev  0x00000621      0x126 IPX_LCD_Display.o
+ .debug_abbrev  0x00000747      0x145 main.o
 
-.debug_line     0x00000000      0x69a
+.debug_line     0x00000000      0x6be
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x133 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_line    0x00000133       0xea IPX_Interrupt.o
- .debug_line    0x0000021d      0x1ee IPX_LCD_Display.o
- .debug_line    0x0000040b      0x28f main.o
+ .debug_line    0x00000133       0xf6 IPX_Interrupt.o
+ .debug_line    0x00000229      0x1fa IPX_LCD_Display.o
+ .debug_line    0x00000423      0x29b main.o
 
 .debug_frame    0x00000000       0xa0
  *(.debug_frame)
@@ -434,15 +440,15 @@ END GROUP
  .debug_frame   0x00000048       0x34 IPX_LCD_Display.o
  .debug_frame   0x0000007c       0x24 main.o
 
-.debug_str      0x00000000      0x414
+.debug_str      0x00000000      0x419
  *(.debug_str)
  .debug_str     0x00000000      0x208 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_str     0x00000208      0x16e IPX_Interrupt.o
-                                0x1a2 (size before relaxing)
- .debug_str     0x00000376       0x8d IPX_LCD_Display.o
-                                0x1f1 (size before relaxing)
- .debug_str     0x00000403       0x11 main.o
+ .debug_str     0x00000208      0x173 IPX_Interrupt.o
+                                0x1ac (size before relaxing)
+ .debug_str     0x0000037b       0x8d IPX_LCD_Display.o
                                 0x1fb (size before relaxing)
+ .debug_str     0x00000408       0x11 main.o
+                                0x205 (size before relaxing)
 
 .debug_loc      0x00000000       0x95
  *(.debug_loc)

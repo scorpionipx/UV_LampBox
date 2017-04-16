@@ -5,8 +5,7 @@
  * Author : ScorpionIPX
  */ 
 
-#define F_CPU 1000000UL
-
+#include "Global.h"
 #include <avr/io.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
