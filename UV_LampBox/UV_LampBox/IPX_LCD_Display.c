@@ -9,6 +9,7 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include <string.h>
+#include <lcd.h>
 
 #define MAX_CHARS_PER_ROW 16
 
