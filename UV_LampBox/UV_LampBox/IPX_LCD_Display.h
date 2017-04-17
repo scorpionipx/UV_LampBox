@@ -22,4 +22,8 @@ void put_Char_LCD_Display(int ch, int type);
 void init_LCD_Display(void);
 void display_time();
 
+#define BLINK_ON put_Char_LCD_Display(0x0D, 0)
+#define BLINK_OFF put_Char_LCD_Display(0x0C, 0)
+#define clear_display() put_Char_LCD_Display(0x01,0)
+
 #endif /* IPX_LCD_DISPLAY_H_ */

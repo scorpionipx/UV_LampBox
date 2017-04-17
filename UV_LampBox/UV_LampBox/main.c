@@ -13,25 +13,29 @@
 #include "IPX_Interrupt.h"
 #include "IPX_UV_light_control.h"
 #include "IPX_Buttons.h"
+#include "IPX_Clock.h"
 
 
 int main(void)
 {
     /* Replace with your application code */
+
+	DDRC |= 1 << 0;   // LED
+	PORTC |= 1 << 0;  // LED
 	
 	STATE_MACHINE = STATE_INIT;
-	PRESSED_BUTTON = BUTTON_1;//NO_BUTTON;
+	PRESSED_BUTTON = NO_BUTTON;
+	BUTTONS_ALLOWED = TRUE;
 	
 	CLOCK.H = 0;
-	CLOCK.M = 1;
-	CLOCK.S = 11;
+	CLOCK.M = 0;
+	CLOCK.S = 0;
+	
+	CURSON_POSITION = CP_HOURS_X_10;
 	
 	UV_control_init();
 	init_buttons();
 	init_interrupt_200ms();
-	
-	DDRC |= 1 << 0;
-	PORTC |= 1 << 0;
 	
 	_delay_ms(1200);
 	
@@ -44,6 +48,8 @@ int main(void)
 	_delay_ms(1000);
 	clear_display();
 	
+	STATE_MACHINE = STATE_WELCOME;
+	
 	put_Char_LCD_Display(0x80, 0);
 	put_string("ScorpionIPX");
 	
@@ -51,23 +57,23 @@ int main(void)
 	put_string("UV LampBox v1.0");
 	
 	_delay_ms(2000);
+	PORTC &= ~(1 << 0);
 	clear_display();
 	
+	STATE_MACHINE = STATE_SETTINGS;
+	BLINK_ON;
 	put_Char_LCD_Display(0x80, 0);
-	put_string("TIME:");
+	put_string("SET TIME:");
 	
 	display_time();
+	put_Char_LCD_Display(0xC0, 0);
+	_delay_ms(1000);
 	
 	sei();
 	
-	_delay_ms(1000);
     while (1) 
     {
-		/*_delay_ms(100);
-		PORTC ^= 1 << 0;
-		_delay_ms(5000);
-		PORTC ^= 1 << 0;*/
-		
+			
     }
 }
 

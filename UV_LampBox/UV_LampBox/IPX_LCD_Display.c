@@ -12,7 +12,8 @@
 #include "IPX_LCD_Display.h"
 
 #define MAX_CHARS_PER_ROW 16
-#define LCD_DELAY_MS 10
+#define LCD_DELAY_MS 2
+#define LCD_INIT_DELAY_MS 7
 
 void put_Char_LCD_Display(int ch, int type)
 {
@@ -32,19 +33,19 @@ void init_LCD_Display(void)
 {
 	DDRD = 0xFF;
 	put_Char_LCD_Display(0x38,0);
-	_delay_ms(LCD_DELAY_MS);
+	_delay_ms(LCD_INIT_DELAY_MS);
 	put_Char_LCD_Display(0x38,0);
-	_delay_ms(LCD_DELAY_MS);
+	_delay_ms(LCD_INIT_DELAY_MS);
 	put_Char_LCD_Display(0x38,0);
-	_delay_ms(LCD_DELAY_MS);
+	_delay_ms(LCD_INIT_DELAY_MS);
 	put_Char_LCD_Display(0x02,0);
-	_delay_ms(LCD_DELAY_MS);
+	_delay_ms(LCD_INIT_DELAY_MS);
 	put_Char_LCD_Display(0x0C,0);
-	_delay_ms(LCD_DELAY_MS);
+	_delay_ms(LCD_INIT_DELAY_MS);
 	put_Char_LCD_Display(0x01,0);
-	_delay_ms(LCD_DELAY_MS);
+	_delay_ms(LCD_INIT_DELAY_MS);
 	put_Char_LCD_Display(0x80,0);
-	_delay_ms(LCD_DELAY_MS);
+	_delay_ms(LCD_INIT_DELAY_MS);
 	put_Char_LCD_Display(0x01,0);//clear display
 }
 
@@ -69,8 +70,4 @@ void display_time()
 	put_Char_LCD_Display(':', 1);
 	put_Char_LCD_Display('0' + CLOCK.S/10, 1);
 	put_Char_LCD_Display('0' + CLOCK.S%10, 1);
-	
-	put_Char_LCD_Display(' ', 1);
-	put_Char_LCD_Display('B', 1);
-	put_Char_LCD_Display('0' + PRESSED_BUTTON, 1);
 }

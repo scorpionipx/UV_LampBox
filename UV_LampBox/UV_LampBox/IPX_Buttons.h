@@ -25,6 +25,8 @@
 #define BUTTON_3_VALUE ((BUTTONS_PIN >> BUTTON_3_PIN) & 1)
 #define BUTTON_4_VALUE ((BUTTONS_PIN >> BUTTON_4_PIN) & 1)
 
+#define BUTTONS_DELAY 18
+
 void init_buttons();
 void read_buttons();
 

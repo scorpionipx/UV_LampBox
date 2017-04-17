@@ -9,6 +9,8 @@
 #ifndef IPX_UV_LIGHT_CONTROL_H_
 #define IPX_UV_LIGHT_CONTROL_H_
 
+#include "avr/io.h"
+
 #define UV_CONTROL_DDR DDRC
 #define UV_CONTROL_PORT PORTC
 #define UV_CONTROL_PIN PC1

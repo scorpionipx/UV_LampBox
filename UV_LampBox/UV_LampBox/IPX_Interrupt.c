@@ -17,6 +17,7 @@
 #define INTERRUPT_200MS 200
 
 volatile int counter = 1;
+volatile unsigned short btn_counter = 1;
 
 // 10 ms timer
 void init_interrupt_200ms()
@@ -37,12 +38,29 @@ ISR (TIMER0_COMPA_vect)  // timer0 overflow interrupt
 {
 	//event to be executed every 10ms here
 	counter ++;
-	if(counter >= 100)
+	if(BUTTONS_ALLOWED)
 	{
-		counter = 1;
-		//PORTC ^= 1 << 0;
-		decrement_clock();
-		display_time();
 		read_buttons();
+	}
+	else
+	{
+		btn_counter ++;
+		if(btn_counter >= BUTTONS_DELAY)
+		{
+			btn_counter = 1;
+			BUTTONS_ALLOWED = TRUE;
+			PRESSED_BUTTON = NO_BUTTON;
+		}
+	}
+	if(counter >= 99)
+	{
+		PORTC ^= 1 << 0;
+		counter = 1;
+		if(STATE_MACHINE == STATE_WORKING)
+		{
+			display_time();
+			decrement_clock();
+		}
+		PORTC ^= 1 << 0;
 	}
 }
