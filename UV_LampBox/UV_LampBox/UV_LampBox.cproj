@@ -121,6 +121,12 @@
     <Compile Include="Global.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="IPX_Buttons.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IPX_Buttons.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="IPX_Clock.c">
       <SubType>compile</SubType>
     </Compile>

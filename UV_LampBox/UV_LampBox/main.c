@@ -11,6 +11,8 @@
 #include <avr/interrupt.h>
 #include "IPX_LCD_Display.h"
 #include "IPX_Interrupt.h"
+#include "IPX_UV_light_control.h"
+#include "IPX_Buttons.h"
 
 
 int main(void)
@@ -18,12 +20,14 @@ int main(void)
     /* Replace with your application code */
 	
 	STATE_MACHINE = STATE_INIT;
+	PRESSED_BUTTON = BUTTON_1;//NO_BUTTON;
 	
 	CLOCK.H = 0;
 	CLOCK.M = 1;
 	CLOCK.S = 11;
 	
 	UV_control_init();
+	init_buttons();
 	init_interrupt_200ms();
 	
 	DDRC |= 1 << 0;
@@ -44,9 +48,9 @@ int main(void)
 	put_string("ScorpionIPX");
 	
 	put_Char_LCD_Display(0xC0, 0);
-	put_string("UV LightBox v1.0");
+	put_string("UV LampBox v1.0");
 	
-	_delay_ms(7000);
+	_delay_ms(2000);
 	clear_display();
 	
 	put_Char_LCD_Display(0x80, 0);

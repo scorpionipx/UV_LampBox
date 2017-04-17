@@ -69,4 +69,8 @@ void display_time()
 	put_Char_LCD_Display(':', 1);
 	put_Char_LCD_Display('0' + CLOCK.S/10, 1);
 	put_Char_LCD_Display('0' + CLOCK.S%10, 1);
+	
+	put_Char_LCD_Display(' ', 1);
+	put_Char_LCD_Display('B', 1);
+	put_Char_LCD_Display('0' + PRESSED_BUTTON, 1);
 }

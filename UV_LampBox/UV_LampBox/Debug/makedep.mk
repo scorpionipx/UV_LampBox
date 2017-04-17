@@ -2,6 +2,8 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+IPX_Buttons.c
+
 IPX_Clock.c
 
 IPX_Interrupt.c

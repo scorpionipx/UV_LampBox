@@ -1,0 +1,53 @@
+/*
+ * IPX_Buttons.c
+ *
+ * Created: 4/17/2017 1:16:52 PM
+ *  Author: ScorpionIPX
+ */ 
+
+#include "Global.h"
+#include "IPX_Buttons.h"
+
+void init_buttons()
+{
+	BUTTONS_DDR &= ~(1 << BUTTON_1_PIN | 1 << BUTTON_2_PIN | 1 << BUTTON_3_PIN | 1 << BUTTON_4_PIN);
+	BUTTONS_PORT &= ~(1 << BUTTON_1_PIN | 1 << BUTTON_2_PIN | 1 << BUTTON_3_PIN | 1 << BUTTON_4_PIN);
+	
+	BUTTON_1_PRESSED = FALSE;
+	BUTTON_2_PRESSED = FALSE;
+	BUTTON_3_PRESSED = FALSE;
+	BUTTON_4_PRESSED = FALSE;
+}
+
+void read_buttons()
+{
+	BUTTON_1_PRESSED = BUTTON_1_VALUE;
+	if(BUTTON_1_PRESSED)
+	{
+		PRESSED_BUTTON = BUTTON_1;
+		return;
+	}
+	
+	BUTTON_2_PRESSED = BUTTON_2_VALUE;
+	if(BUTTON_2_PRESSED)
+	{
+		PRESSED_BUTTON = BUTTON_2;
+		return;
+	}
+	
+	BUTTON_3_PRESSED = BUTTON_3_VALUE;
+	if(BUTTON_3_PRESSED)
+	{
+		PRESSED_BUTTON = BUTTON_3;
+		return;
+	}
+	
+	BUTTON_4_PRESSED = BUTTON_4_VALUE;
+	if(BUTTON_4_PRESSED)
+	{
+		PRESSED_BUTTON = BUTTON_4;
+		return;
+	}
+	
+	PRESSED_BUTTON = NO_BUTTON;
+}
