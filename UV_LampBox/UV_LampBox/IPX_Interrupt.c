@@ -11,6 +11,7 @@
 #include <avr/interrupt.h>
 #include "IPX_Clock.h"
 #include "IPX_LCD_Display.h"
+#include "IPX_UV_light_control.h"
 
 #define INTERRUPT_200MS 200
 
@@ -38,8 +39,9 @@ ISR (TIMER0_COMPA_vect)  // timer0 overflow interrupt
 	if(counter >= 100)
 	{
 		counter = 1;
-		PORTC ^= 1 << 0;
+		//PORTC ^= 1 << 0;
 		decrement_clock();
 		display_time();
+		UV_CONTROL_TOGGLE;
 	}
 }

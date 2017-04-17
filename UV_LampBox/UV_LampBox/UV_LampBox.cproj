@@ -139,6 +139,12 @@
     <Compile Include="IPX_LCD_Display.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="IPX_UV_light_control.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IPX_UV_light_control.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>

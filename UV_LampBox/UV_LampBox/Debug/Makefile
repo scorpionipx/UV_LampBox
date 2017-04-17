@@ -40,6 +40,7 @@ C_SRCS +=  \
 ../IPX_Clock.c \
 ../IPX_Interrupt.c \
 ../IPX_LCD_Display.c \
+../IPX_UV_light_control.c \
 ../main.c
 
 
@@ -53,24 +54,28 @@ OBJS +=  \
 IPX_Clock.o \
 IPX_Interrupt.o \
 IPX_LCD_Display.o \
+IPX_UV_light_control.o \
 main.o
 
 OBJS_AS_ARGS +=  \
 IPX_Clock.o \
 IPX_Interrupt.o \
 IPX_LCD_Display.o \
+IPX_UV_light_control.o \
 main.o
 
 C_DEPS +=  \
 IPX_Clock.d \
 IPX_Interrupt.d \
 IPX_LCD_Display.d \
+IPX_UV_light_control.d \
 main.d
 
 C_DEPS_AS_ARGS +=  \
 IPX_Clock.d \
 IPX_Interrupt.d \
 IPX_LCD_Display.d \
+IPX_UV_light_control.d \
 main.d
 
 OUTPUT_FILE_PATH +=UV_LampBox.elf
@@ -87,6 +92,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

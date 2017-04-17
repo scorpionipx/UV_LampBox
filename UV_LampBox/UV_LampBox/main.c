@@ -23,6 +23,7 @@ int main(void)
 	CLOCK.M = 1;
 	CLOCK.S = 11;
 	
+	UV_control_init();
 	init_interrupt_200ms();
 	
 	DDRC |= 1 << 0;
