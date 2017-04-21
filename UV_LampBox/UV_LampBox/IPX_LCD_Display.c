@@ -11,10 +11,13 @@
 #include <string.h>
 #include "IPX_LCD_Display.h"
 
-#define MAX_CHARS_PER_ROW 16
-#define LCD_DELAY_MS 2
-#define LCD_INIT_DELAY_MS 7
+#define MAX_CHARS_PER_ROW 16   // 16X2 LCD DISPLAY PROPERTIES
+#define LCD_DELAY_MS 2         // DELAY BETWEEN DATA SENT TO LCD
+#define LCD_INIT_DELAY_MS 7    // DELAY BETWEEN DATA SENT TO LCD WHEN INITIALIZING
 
+// SEND COMMAND OR DATA TO LCD, 4 BIT MODE CONFIGURATION
+// type == 1 => SEND DATA
+// type == 0 => SEND COMMAND 
 void put_Char_LCD_Display(int ch, int type)
 {
 	PORTD = (PORTD&0x0F)|(ch&0xF0);
@@ -29,6 +32,7 @@ void put_Char_LCD_Display(int ch, int type)
 	PORTD &= 0xFC;
 }
 
+// LCD INITIALIZING FOR 4 BIT MODE
 void init_LCD_Display(void)
 {
 	DDRD = 0xFF;
@@ -49,7 +53,7 @@ void init_LCD_Display(void)
 	put_Char_LCD_Display(0x01,0);//clear display
 }
 
-// display string
+// DISPLAY STRING ON LCD
 void put_string(const char *_string)
 {
 	int ch_index;
@@ -59,6 +63,7 @@ void put_string(const char *_string)
 	}
 }
 
+// DISPLAY CURRENT TIME
 void display_time()
 {
 	put_Char_LCD_Display(0xC0, 0);
