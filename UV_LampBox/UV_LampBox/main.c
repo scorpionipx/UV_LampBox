@@ -15,6 +15,8 @@
 #include "IPX_Buttons.h"
 #include "IPX_Clock.h"
 
+#define TITLE_DISPLAY_TIME_MS 4000
+#define LCD_WARM_UP_TIME_MS 1200
 
 int main(void)
 {
@@ -35,15 +37,15 @@ int main(void)
 	init_buttons();
 	init_interrupt_200ms();
 	
-	_delay_ms(1200);
+	_delay_ms(LCD_WARM_UP_TIME_MS);
 	
 	init_LCD_Display();
 	
-	_delay_ms(1200);
+	_delay_ms(LCD_WARM_UP_TIME_MS);
 	
 	put_string("Initializing...");
 	
-	_delay_ms(1000);
+	_delay_ms(LCD_WARM_UP_TIME_MS);
 	clear_display();
 	
 	STATE_MACHINE = STATE_WELCOME;
@@ -54,7 +56,7 @@ int main(void)
 	put_Char_LCD_Display(0xC0, 0);
 	put_string("UV LampBox v1.0");
 	
-	_delay_ms(4000);
+	_delay_ms(TITLE_DISPLAY_TIME_MS);
 	PORTC &= ~(1 << 0);
 	clear_display();
 	
@@ -65,7 +67,7 @@ int main(void)
 	
 	display_time();
 	put_Char_LCD_Display(0xC0, 0);
-	_delay_ms(300);
+	_delay_ms(100);
 	
 	sei();
 	
