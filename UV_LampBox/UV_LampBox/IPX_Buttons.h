@@ -5,6 +5,15 @@
  *  Author: ScorpionIPX
  */ 
 
+/*
+	PIN CONFIGURATION
+
+     BUTTON_1 - PC2, 25th
+	 BUTTON_2 - PC3, 26th
+	 BUTTON_3 - PC4, 27th
+	 BUTTON_4 - PC5, 28th
+*/
+
 
 #ifndef IPX_BUTTONS_H_
 #define IPX_BUTTONS_H_
@@ -25,6 +34,7 @@
 #define BUTTON_3_VALUE ((BUTTONS_PIN >> BUTTON_3_PIN) & 1)
 #define BUTTON_4_VALUE ((BUTTONS_PIN >> BUTTON_4_PIN) & 1)
 
+// TIME BETWEEN BUTTONS' STATES READING * 10 MS
 #define BUTTONS_DELAY 18
 
 void init_buttons();

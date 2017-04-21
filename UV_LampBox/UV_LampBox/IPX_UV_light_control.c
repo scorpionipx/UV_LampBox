@@ -8,6 +8,7 @@
 #include "IPX_UV_light_control.h"
 #include <avr/io.h>
 
+// INITIALIZING UV CONTROL PORT
 void UV_control_init()
 {
 	UV_CONTROL_DDR |= 1 << UV_CONTROL_PIN;

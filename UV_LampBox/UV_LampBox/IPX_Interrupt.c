@@ -14,29 +14,26 @@
 #include "IPX_UV_light_control.h"
 #include "IPX_Buttons.h"
 
-#define INTERRUPT_200MS 200
+#define INTERRUPT_200MS 200                   // INTERRUT ENTITY
 
-volatile int counter = 1;
-volatile unsigned short btn_counter = 1;
+volatile int counter = 1;                     // GENERAL PURPOSE INTERRUPT COUNTER
+volatile unsigned short btn_counter = 1;      // BUTTONS INTERRUPT COUNTER 
 
 // 10 ms timer
 void init_interrupt_200ms()
 {
-	// Set the Timer Mode to CTC
-	TCCR0A |= (1 << WGM01);
+	TCCR0A |= (1 << WGM01);     // Set the Timer Mode to CTC
+	
+	OCR0A = 0x26;               // Set the value to count to
 
-	// Set the value that you want to count to
-	OCR0A = 0x26;
+	TIMSK0 |= (1 << OCIE0A);    // Set the ISR COMPA vector
 
-	TIMSK0 |= (1 << OCIE0A);    //Set the ISR COMPA vector
-
-	TCCR0B |= (1 << CS02);
-	// set prescaler to 256 and start the timer
+	TCCR0B |= (1 << CS02);      // set prescaler to 256
 }
 
-ISR (TIMER0_COMPA_vect)  // timer0 overflow interrupt
+ISR (TIMER0_COMPA_vect)  // TIMER0 COMPARE INTERRUPT
 {
-	//event to be executed every 10ms here
+	// events to be executed every 10ms
 	counter ++;
 	if(BUTTONS_ALLOWED)
 	{
