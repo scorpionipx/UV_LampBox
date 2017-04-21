@@ -10,6 +10,8 @@
 #include "IPX_LCD_Display.h"
 #include "IPX_UV_light_control.h"
 
+// DECREASE TIME BY ONE SECOND
+// IF TIME IS REACHES 00:00:00, STATE MACHINE CHANGES TO WORK FINISHED
 void decrement_clock()
 {
 	if(CLOCK.S >= 1)
@@ -43,6 +45,7 @@ void decrement_clock()
 	}
 }
 
+// SET NEW TIME VALUE FOR UV LAMP
 void set_time(int increase_decrease)
 {
 	switch(CURSON_POSITION)
@@ -136,6 +139,9 @@ void set_time(int increase_decrease)
 	put_Char_LCD_Display(0xC0 + CURSON_POSITION, 0);
 }
 
+// SHIFT CURSOR TO ANOTHER DIGIT
+// SELECTED DIGIT IS THE ONE WHICH IS MODIFIED
+// MOVING CURSOR FURTHER RIGHT AFTER SECONDS LAST DIGIT RESULTS IN STARTING UP THE UV LAMP
 void set_cursor(int direction)
 {
 	switch(direction)
