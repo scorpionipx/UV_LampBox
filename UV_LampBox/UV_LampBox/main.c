@@ -18,10 +18,8 @@
 
 int main(void)
 {
-    /* Replace with your application code */
-
-	DDRC |= 1 << 0;   // LED
-	PORTC |= 1 << 0;  // LED
+	DDRC |= 1 << 0;   // FEEDBACK LED INIT
+	PORTC |= 1 << 0;  // FEEDBACK LED ON
 	
 	STATE_MACHINE = STATE_INIT;
 	PRESSED_BUTTON = NO_BUTTON;
@@ -56,7 +54,7 @@ int main(void)
 	put_Char_LCD_Display(0xC0, 0);
 	put_string("UV LampBox v1.0");
 	
-	_delay_ms(2000);
+	_delay_ms(4000);
 	PORTC &= ~(1 << 0);
 	clear_display();
 	
@@ -67,7 +65,7 @@ int main(void)
 	
 	display_time();
 	put_Char_LCD_Display(0xC0, 0);
-	_delay_ms(1000);
+	_delay_ms(300);
 	
 	sei();
 	
