@@ -11,17 +11,39 @@
 #include "IPX_Clock.h"
 #include "IPX_UV_light_control.h"
 
+// INITIALIZE uC PORT FOR BUTTONS READING AND SET BUTTONS DEFAULT VALUE TO FALSE (RELEASED)
 void init_buttons()
 {
+	// SET PORT DIRECTION
 	BUTTONS_DDR &= ~(1 << BUTTON_1_PIN | 1 << BUTTON_2_PIN | 1 << BUTTON_3_PIN | 1 << BUTTON_4_PIN);
+	
+	// SET DEFAULT VALUE
 	BUTTONS_PORT &= ~(1 << BUTTON_1_PIN | 1 << BUTTON_2_PIN | 1 << BUTTON_3_PIN | 1 << BUTTON_4_PIN);
 	
+	// GLOBAL BUTTONS STATE TRACKING INITIALIZING
 	BUTTON_1_PRESSED = FALSE;
 	BUTTON_2_PRESSED = FALSE;
 	BUTTON_3_PRESSED = FALSE;
 	BUTTON_4_PRESSED = FALSE;
 }
 
+//    FUNCTION READS BUTTONS' STATES AND TAKES ACTION ACCORDINGLY TO MACHINE STATE
+//    IF A BUTTON IS READ AS PRESSED (VALUE == TRUE), THE FOLLOWING BUTTONS' VALUES 
+// WON'T BE READ ANYMORE FOR (BUTTONS_DELAY * 10 MS) (DEFINED IN IPX_BUTTONS.H)
+//    BUTTONS PRIORITY: BUTTON_1 -> BUTTON_2 -> BUTTON_3 -> BUTTON_4 -> NO_BUTTON
+//    PRESSED_BUTTON USED ONLY FOR TESTING, CAN BE REMOVED 
+
+//    BUTTONS FUNCTIONS:
+/*
+  =====================================================================================
+|| BUTTON // STATE           STATE_SETTINGS              STATE_WORKING     STATE_PAUSED
+  =====================================================================================
+||   BUTTON_1   ||         CURSOR BACKWARD          ||      PAUSE      ||     STOP     ||
+||   BUTTON_2   ||  CURSOR FORWARD / START UV LAMP  ||      PAUSE      ||     STOP     ||
+||   BUTTON_3   ||      INCREASE SELECTED VALUE     ||      PAUSE      ||    RESUME    ||
+||   BUTTON_4   ||      DECREASE SELECTED VALUE     ||      PAUSE      ||    RESUME    ||
+  =====================================================================================
+*/
 void read_buttons()
 {
 	BUTTON_1_PRESSED = BUTTON_1_VALUE;
